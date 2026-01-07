@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+*.swp
+*.swo
+
+# Local dev
+.env
+.env.local

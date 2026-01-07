@@ -1,0 +1,20 @@
+{
+  "name": "anyujia-site",
+  "version": "1.0.0",
+  "description": "anyujia 个人博客 - Security / Pentest / Engineering",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anYuJia/anYuJia.github.io"
+  },
+  "author": "anyujia",
+  "license": "MIT"
+}

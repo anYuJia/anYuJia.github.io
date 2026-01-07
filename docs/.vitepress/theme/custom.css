@@ -1,0 +1,732 @@
+/* ============================================
+   🚀 FUTURISTIC CYBERPUNK THEME
+   ============================================ */
+
+/* ---------- 全局变量 ---------- */
+:root {
+  /* 赛博朋克配色 */
+  --neon-cyan: #00ffff;
+  --neon-magenta: #ff00ff;
+  --neon-purple: #bd00ff;
+  --neon-blue: #00d4ff;
+  --neon-pink: #ff2d95;
+  --neon-green: #39ff14;
+
+  /* 背景色 */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: rgba(15, 15, 25, 0.8);
+  --bg-glass: rgba(20, 20, 40, 0.6);
+
+  /* 玻璃效果 */
+  --glass-blur: blur(20px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* 辉光效果 */
+  --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
+  --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+  --glow-purple: 0 0 20px rgba(189, 0, 255, 0.5), 0 0 40px rgba(189, 0, 255, 0.3);
+
+  /* VitePress 覆盖 - 品牌色 */
+  --vp-c-brand-1: var(--neon-cyan);
+  --vp-c-brand-2: var(--neon-blue);
+  --vp-c-brand-3: var(--neon-purple);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta), var(--neon-purple));
+
+  /* VitePress 覆盖 - 强制暗色背景 */
+  --vp-c-bg: #0a0a0f !important;
+  --vp-c-bg-alt: #0d0d14 !important;
+  --vp-c-bg-elv: #101018 !important;
+  --vp-c-bg-soft: #15151f !important;
+  --vp-sidebar-bg-color: transparent !important;
+  --vp-c-gutter: rgba(0, 255, 255, 0.1) !important;
+  --vp-c-divider: rgba(0, 255, 255, 0.1) !important;
+  --vp-c-text-1: #e0e0e0 !important;
+  --vp-c-text-2: #a0a0a0 !important;
+  --vp-c-text-3: #707070 !important;
+  --vp-nav-bg-color: transparent !important;
+  --vp-local-nav-bg-color: transparent !important;
+}
+
+/* ---------- 隐藏默认鼠标 ---------- */
+* {
+  cursor: none !important;
+}
+
+/* ---------- 自定义鼠标光标 ---------- */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.15s ease-out, border-color 0.3s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.8);
+  border-color: var(--neon-magenta);
+  background: rgba(255, 0, 255, 0.1);
+}
+
+.custom-cursor.click {
+  transform: translate(-50%, -50%) scale(0.8);
+  border-color: var(--neon-green);
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--glow-cyan);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cursor-dot.hover {
+  background: var(--neon-magenta);
+  box-shadow: var(--glow-magenta);
+}
+
+/* ---------- 鼠标轨迹粒子 ---------- */
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  opacity: 0.8;
+  animation: trail-fade 0.8s ease-out forwards;
+}
+
+@keyframes trail-fade {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ---------- 点击波纹效果 ---------- */
+.click-ripple {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99997;
+  animation: ripple-expand 0.6s ease-out forwards;
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 0;
+  }
+}
+
+/* ---------- 动漫背景 ---------- */
+.anime-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.anime-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(189, 0, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 60%);
+  animation: aurora 15s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(-2deg);
+  }
+}
+
+/* ---------- 粒子系统 ---------- */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon-cyan);
+  animation: float-particle 20s linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ---------- 网格背景 ---------- */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -8;
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(50px);
+  }
+}
+
+/* ---------- 扫描线效果 ---------- */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px);
+}
+
+/* ---------- 全局暗色主题 ---------- */
+html {
+  background: var(--bg-primary) !important;
+}
+
+body {
+  background: transparent !important;
+  color: #e0e0e0 !important;
+}
+
+/* ---------- 玻璃拟态导航栏 ---------- */
+.VPNav {
+  background: var(--bg-glass) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border-bottom: var(--glass-border) !important;
+}
+
+.VPNavBar {
+  background: transparent !important;
+}
+
+.VPNavBarTitle .title {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 700 !important;
+  text-shadow: var(--glow-cyan);
+}
+
+/* ---------- 导航链接悬停效果 ---------- */
+.VPNavBarMenuLink {
+  position: relative;
+  transition: all 0.3s ease !important;
+}
+
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  box-shadow: var(--glow-cyan);
+}
+
+.VPNavBarMenuLink:hover::after {
+  width: 100%;
+}
+
+.VPNavBarMenuLink:hover {
+  color: var(--neon-cyan) !important;
+  text-shadow: var(--glow-cyan);
+}
+
+/* ---------- 侧边栏玻璃效果 ---------- */
+.VPSidebar {
+  background: var(--bg-glass) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border-right: var(--glass-border) !important;
+}
+
+.VPSidebarItem .text {
+  transition: all 0.3s ease !important;
+}
+
+.VPSidebarItem:hover .text {
+  color: var(--neon-cyan) !important;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* ---------- 内容区域 ---------- */
+.VPContent {
+  background: transparent !important;
+}
+
+.VPDoc {
+  background: transparent !important;
+}
+
+/* 文档主容器 */
+.VPDoc .container {
+  background: transparent !important;
+}
+
+.VPDoc .content {
+  background: transparent !important;
+}
+
+/* 本地导航栏（文档页面顶部） */
+.VPLocalNav {
+  background: var(--bg-glass) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border-bottom: var(--glass-border) !important;
+}
+
+/* 页面容器 */
+.VPPage {
+  background: transparent !important;
+}
+
+/* 主内容包装器 */
+main {
+  background: transparent !important;
+}
+
+/* 文档内容区域 */
+.vp-doc {
+  background: transparent !important;
+}
+
+/* 确保所有容器透明 */
+.VPContent>.VPDoc,
+.VPContent>.VPPage,
+.VPDoc>.container,
+.VPDoc>.container>.content {
+  background: transparent !important;
+}
+
+/* ---------- Hero 区域增强 ---------- */
+.VPHero {
+  position: relative;
+  z-index: 1;
+}
+
+.VPHero .name {
+  font-size: 4rem !important;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+
+  0%,
+  90%,
+  100% {
+    text-shadow:
+      0 0 20px var(--neon-cyan),
+      0 0 40px var(--neon-cyan),
+      0 0 60px var(--neon-cyan);
+  }
+
+  92% {
+    text-shadow:
+      -2px 0 var(--neon-magenta),
+      2px 2px var(--neon-cyan);
+  }
+
+  94% {
+    text-shadow:
+      2px -2px var(--neon-magenta),
+      -2px 2px var(--neon-cyan);
+  }
+}
+
+.VPHero .tagline {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- 按钮霓虹效果 ---------- */
+.VPButton {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+}
+
+.VPButton.brand {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)) !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.VPButton.brand:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.VPButton.alt {
+  background: transparent !important;
+  border: 1px solid var(--neon-magenta) !important;
+  color: var(--neon-magenta) !important;
+}
+
+.VPButton.alt:hover {
+  background: rgba(255, 0, 255, 0.1) !important;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* 按钮扫光效果 */
+.VPButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.VPButton:hover::before {
+  left: 100%;
+}
+
+/* ---------- Feature 卡片 ---------- */
+.VPFeature {
+  background: var(--bg-glass) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  overflow: hidden;
+}
+
+.VPFeature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-purple));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(0, 255, 255, 0.3) !important;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.VPFeature:hover::before {
+  opacity: 1;
+}
+
+.VPFeature .icon {
+  font-size: 2.5rem !important;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.VPFeature .title {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ---------- 入场动画 ---------- */
+.VPHero .VPImage,
+.VPHero .name,
+.VPHero .text,
+.VPHero .tagline,
+.VPHero .actions {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.VPHero .name {
+  animation-delay: 0.1s;
+}
+
+.VPHero .text {
+  animation-delay: 0.2s;
+}
+
+.VPHero .tagline {
+  animation-delay: 0.3s;
+}
+
+.VPHero .actions {
+  animation-delay: 0.4s;
+}
+
+.VPHero .VPImage {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.VPFeature {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.VPFeature:nth-child(1) {
+  animation-delay: 0.6s;
+}
+
+.VPFeature:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.VPFeature:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.VPFeature:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+/* ---------- 滚动条美化 ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-magenta), var(--neon-cyan));
+}
+
+/* ---------- 代码块增强 ---------- */
+.vp-code-group .tabs label {
+  transition: all 0.3s ease !important;
+}
+
+.vp-code-group .tabs label:hover {
+  color: var(--neon-cyan) !important;
+}
+
+div[class*='language-'] {
+  background: var(--bg-glass) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  border-radius: 12px !important;
+}
+
+/* ---------- 链接悬停效果 ---------- */
+.vp-doc a {
+  position: relative;
+  color: var(--neon-cyan) !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.vp-doc a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--neon-cyan);
+  transition: width 0.3s ease;
+  box-shadow: var(--glow-cyan);
+}
+
+.vp-doc a:hover::after {
+  width: 100%;
+}
+
+.vp-doc a:hover {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* ---------- 标题装饰 ---------- */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  position: relative;
+  display: inline-block;
+}
+
+.vp-doc h1::before,
+.vp-doc h2::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta));
+  border-radius: 2px;
+  box-shadow: var(--glow-cyan);
+}
+
+/* ---------- 选中文本样式 ---------- */
+::selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* ---------- 页脚 ---------- */
+.VPFooter {
+  background: var(--bg-glass) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border-top: var(--glass-border) !important;
+}
+
+/* ---------- 搜索框 ---------- */
+.VPNavBarSearch .DocSearch-Button {
+  background: var(--bg-glass) !important;
+  border: var(--glass-border) !important;
+  transition: all 0.3s ease !important;
+}
+
+.VPNavBarSearch .DocSearch-Button:hover {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* ---------- 响应式适配 ---------- */
+@media (max-width: 768px) {
+  .VPHero .name {
+    font-size: 2.5rem !important;
+  }
+
+  .grid-background {
+    display: none;
+  }
+}
+
+/* ---------- 打字光标效果 ---------- */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--neon-cyan);
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
