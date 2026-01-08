@@ -4,27 +4,27 @@
 
 /* ---------- 全局变量 ---------- */
 :root {
-  /* 赛博朋克配色 */
-  --neon-cyan: #00b8b8;
-  --neon-magenta: #cc00cc;
-  --neon-purple: #9900cc;
-  --neon-blue: #00aacc;
-  --neon-pink: #cc2480;
-  --neon-green: #2ecc10;
+  /* 赛博朋克配色 - 亮色模式下更深 */
+  --neon-cyan: #008888;
+  --neon-magenta: #aa00aa;
+  --neon-purple: #7700aa;
+  --neon-blue: #0088aa;
+  --neon-pink: #aa2070;
+  --neon-green: #229900;
 
   /* 背景色 - 亮色模式 */
-  --bg-primary: #f5f5f8;
-  --bg-secondary: rgba(240, 240, 245, 0.9);
-  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-primary: #f8f9fc;
+  --bg-secondary: rgba(245, 247, 250, 0.95);
+  --bg-glass: rgba(255, 255, 255, 0.85);
 
   /* 玻璃效果 */
   --glass-blur: blur(20px);
-  --glass-border: 1px solid rgba(0, 0, 0, 0.1);
+  --glass-border: 1px solid rgba(0, 0, 0, 0.08);
 
-  /* 辉光效果 */
-  --glow-cyan: 0 0 15px rgba(0, 180, 180, 0.4), 0 0 30px rgba(0, 180, 180, 0.2);
-  --glow-magenta: 0 0 15px rgba(200, 0, 200, 0.4), 0 0 30px rgba(200, 0, 200, 0.2);
-  --glow-purple: 0 0 15px rgba(150, 0, 200, 0.4), 0 0 30px rgba(150, 0, 200, 0.2);
+  /* 辉光效果 - 亮色模式下更淡 */
+  --glow-cyan: 0 0 10px rgba(0, 136, 136, 0.2), 0 0 20px rgba(0, 136, 136, 0.1);
+  --glow-magenta: 0 0 10px rgba(170, 0, 170, 0.2), 0 0 20px rgba(170, 0, 170, 0.1);
+  --glow-purple: 0 0 10px rgba(119, 0, 170, 0.2), 0 0 20px rgba(119, 0, 170, 0.1);
 
   /* VitePress 覆盖 - 品牌色 */
   --vp-c-brand-1: var(--neon-cyan);
@@ -32,6 +32,20 @@
   --vp-c-brand-3: var(--neon-purple);
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta), var(--neon-purple));
+
+  /* VitePress 覆盖 - 亮色模式文字颜色 */
+  --vp-c-text-1: #1a1a2e;
+  --vp-c-text-2: #3a3a5a;
+  --vp-c-text-3: #5a5a7a;
+  --vp-c-bg: #f8f9fc;
+  --vp-c-bg-alt: #f0f2f5;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #eef0f4;
+
+  /* 文字颜色变量 */
+  --text-primary: #1a1a2e;
+  --text-secondary: #3a3a5a;
+  --text-muted: #6a6a8a;
 }
 
 /* ---------- 暗色模式变量 ---------- */
@@ -70,6 +84,11 @@
   --vp-c-text-3: #707070;
   --vp-nav-bg-color: transparent;
   --vp-local-nav-bg-color: transparent;
+
+  /* 文字颜色变量 - 暗色模式 */
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
 }
 
 /* ---------- 隐藏默认鼠标 ---------- */
@@ -753,4 +772,132 @@ div[class*='language-'] {
   50% {
     opacity: 0;
   }
+}
+
+/* ============================================
+   亮色模式文字颜色修复
+   ============================================ */
+
+/* 主要内容区域文字 */
+:root:not(.dark) .VPContent,
+:root:not(.dark) .VPDoc,
+:root:not(.dark) .vp-doc {
+  color: var(--text-primary);
+}
+
+/* 导航栏文字 */
+:root:not(.dark) .VPNavBarMenuLink,
+:root:not(.dark) .VPNavBarMenuLink .text {
+  color: var(--text-primary) !important;
+}
+
+/* 侧边栏文字 */
+:root:not(.dark) .VPSidebar,
+:root:not(.dark) .VPSidebarItem .text {
+  color: var(--text-primary);
+}
+
+/* 正文段落 */
+:root:not(.dark) p,
+:root:not(.dark) li,
+:root:not(.dark) td,
+:root:not(.dark) th {
+  color: var(--text-primary);
+}
+
+/* 标题 */
+:root:not(.dark) h1,
+:root:not(.dark) h2,
+:root:not(.dark) h3,
+:root:not(.dark) h4,
+:root:not(.dark) h5,
+:root:not(.dark) h6 {
+  color: var(--text-primary) !important;
+}
+
+/* Hero 区域副标题 */
+:root:not(.dark) .VPHero .text {
+  color: var(--neon-cyan) !important;
+}
+
+:root:not(.dark) .VPHero .tagline {
+  color: var(--text-secondary) !important;
+}
+
+/* Feature 卡片 */
+:root:not(.dark) .VPFeature .title {
+  color: var(--text-primary) !important;
+}
+
+:root:not(.dark) .VPFeature .details {
+  color: var(--text-secondary) !important;
+}
+
+/* 终端样式在亮色模式下保持深色背景 */
+:root:not(.dark) .terminal-header {
+  background: linear-gradient(180deg, rgba(40, 40, 50, 0.95), rgba(30, 30, 40, 0.95));
+}
+
+:root:not(.dark) .terminal-body {
+  background: rgba(20, 20, 35, 0.95);
+  color: #e0e0e0;
+}
+
+/* 卡片在亮色模式下 */
+:root:not(.dark) .project-card,
+:root:not(.dark) .article-item,
+:root:not(.dark) .daily-card,
+:root:not(.dark) .category-item {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 136, 136, 0.2);
+}
+
+:root:not(.dark) .project-card h3,
+:root:not(.dark) .article-content h3,
+:root:not(.dark) .card-content h3 {
+  color: var(--neon-cyan) !important;
+}
+
+:root:not(.dark) .project-card p,
+:root:not(.dark) .article-content p,
+:root:not(.dark) .card-content p {
+  color: var(--text-secondary) !important;
+}
+
+/* 搜索框 */
+:root:not(.dark) .DocSearch-Button {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: var(--text-primary) !important;
+}
+
+/* 代码块保持深色 */
+:root:not(.dark) .vp-code-group,
+:root:not(.dark) div[class*="language-"] {
+  background: #1e1e2e !important;
+}
+
+/* 链接颜色 */
+:root:not(.dark) a {
+  color: var(--neon-cyan);
+}
+
+:root:not(.dark) a:hover {
+  color: var(--neon-magenta);
+}
+
+/* 引用块 */
+:root:not(.dark) blockquote {
+  background: rgba(0, 136, 136, 0.05);
+  border-left-color: var(--neon-cyan);
+  color: var(--text-secondary);
+}
+
+/* 状态栏在亮色模式 */
+:root:not(.dark) .status-bar {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 136, 136, 0.2);
+}
+
+:root:not(.dark) .status-item {
+  color: var(--text-secondary);
 }
