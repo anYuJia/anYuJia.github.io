@@ -10,18 +10,18 @@
 
 <div class="project-grid">
 
-<div class="project-card">
+<a href="/projects/autorecon" class="project-card">
   <div class="card-glow"></div>
   <div class="card-content">
     <div class="card-icon">⚡</div>
-    <h3>工具开发中...</h3>
-    <p>高效的安全自动化工具即将上线</p>
+    <h3>AutoRecon</h3>
+    <p>自动化信息收集工具，集成子域名枚举、端口扫描、目录爆破等功能</p>
     <div class="tech-stack">
       <span class="tech-tag">Python</span>
-      <span class="tech-tag">Go</span>
+      <span class="tech-tag">asyncio</span>
     </div>
   </div>
-</div>
+</a>
 
 </div>
 

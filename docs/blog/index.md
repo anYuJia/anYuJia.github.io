@@ -22,21 +22,21 @@ $ cat /etc/motd
 
 <div class="article-list">
 
-<div class="article-item">
+<a href="/blog/sql-injection-guide" class="article-item">
   <div class="article-date">
-    <span class="date-day">--</span>
-    <span class="date-month">SOON</span>
+    <span class="date-day">08</span>
+    <span class="date-month">JAN</span>
   </div>
   <div class="article-content">
-    <h3>🚧 文章撰写中...</h3>
-    <p>安全研究与渗透测试技术分享即将上线</p>
+    <h3>🔓 SQL 注入漏洞挖掘实战</h3>
+    <p>从实战角度详细介绍 SQL 注入的发现、验证和利用过程</p>
     <div class="article-tags">
       <span class="tag">渗透测试</span>
-      <span class="tag">安全研究</span>
+      <span class="tag">Web安全</span>
     </div>
   </div>
   <div class="article-arrow">→</div>
-</div>
+</a>
 
 </div>
 

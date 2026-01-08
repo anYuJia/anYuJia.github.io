@@ -19,6 +19,18 @@
 
 <div class="daily-grid">
 
+<a href="/daily/new-year-plan-2024" class="daily-card">
+  <div class="card-date">🗓️ 2024.01.08</div>
+  <div class="card-content">
+    <h3>🎯 2024 新年计划</h3>
+    <p>新的一年，新的目标！分享我的学习规划和项目计划。</p>
+    <div class="card-tags">
+      <span class="tag">#生活</span>
+      <span class="tag">#计划</span>
+    </div>
+  </div>
+</a>
+
 <div class="daily-card">
   <div class="card-date">🗓️ 2024.01.08</div>
   <div class="card-content">
@@ -27,17 +39,6 @@
     <div class="card-tags">
       <span class="tag">#里程碑</span>
       <span class="tag">#VitePress</span>
-    </div>
-  </div>
-</div>
-
-<div class="daily-card">
-  <div class="card-date">🗓️ 敬请期待</div>
-  <div class="card-content">
-    <h3>📝 更多动态</h3>
-    <p>这里将会记录生活中的点点滴滴，包括学习心得、旅行见闻、美食探索等...</p>
-    <div class="card-tags">
-      <span class="tag">#SOON</span>
     </div>
   </div>
 </div>

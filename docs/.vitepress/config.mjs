@@ -23,6 +23,7 @@ export default {
           text: "项目",
           items: [
             { text: "项目总览", link: "/projects/" },
+            { text: "AutoRecon 信息收集工具", link: "/projects/autorecon" },
           ],
         },
       ],
@@ -31,6 +32,7 @@ export default {
           text: "博客",
           items: [
             { text: "文章列表", link: "/blog/" },
+            { text: "SQL 注入漏洞挖掘实战", link: "/blog/sql-injection-guide" },
           ],
         },
       ],
@@ -39,6 +41,7 @@ export default {
           text: "日常记录",
           items: [
             { text: "全部动态", link: "/daily/" },
+            { text: "2024 新年计划", link: "/daily/new-year-plan-2024" },
           ],
         },
       ],
