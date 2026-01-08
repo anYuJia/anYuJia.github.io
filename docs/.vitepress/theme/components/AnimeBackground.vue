@@ -19,9 +19,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const particlesContainer = ref(null)
+let particleInterval = null
 
 const createParticle = () => {
   if (!particlesContainer.value) return
@@ -29,7 +30,15 @@ const createParticle = () => {
   const particle = document.createElement('div')
   particle.className = 'particle'
   
-  const colors = ['#00ffff', '#ff00ff', '#bd00ff', '#00d4ff', '#ff2d95', '#39ff14']
+  // 使用 CSS 变量获取当前主题的颜色
+  const colors = [
+    'var(--neon-cyan)', 
+    'var(--neon-magenta)', 
+    'var(--neon-purple)', 
+    'var(--neon-blue)', 
+    'var(--neon-pink)', 
+    'var(--neon-green)'
+  ]
   const color = colors[Math.floor(Math.random() * colors.length)]
   
   particle.style.left = `${Math.random() * 100}%`
@@ -55,7 +64,13 @@ onMounted(() => {
   }
   
   // 持续生成新粒子
-  setInterval(createParticle, 1000)
+  particleInterval = setInterval(createParticle, 1000)
+})
+
+onUnmounted(() => {
+  if (particleInterval) {
+    clearInterval(particleInterval)
+  }
 })
 </script>
 
@@ -68,7 +83,8 @@ onMounted(() => {
   height: 100%;
   z-index: -10;
   overflow: hidden;
-  background: #0a0a0f;
+  background: var(--bg-primary);
+  transition: background 0.3s ease;
 }
 
 /* 动态渐变球 */
@@ -85,6 +101,12 @@ onMounted(() => {
   filter: blur(80px);
   opacity: 0.6;
   animation: float-orb 20s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+/* 亮色模式下降低透明度 */
+:root:not(.dark) .orb {
+  opacity: 0.3;
 }
 
 .orb-1 {
@@ -137,11 +159,18 @@ onMounted(() => {
   top: 50%;
   left: 50%;
   background-image: 
-    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--neon-cyan) 1px, transparent 1px),
+    linear-gradient(90deg, var(--neon-cyan) 1px, transparent 1px);
   background-size: 60px 60px;
   transform: translate(-50%, -50%) perspective(500px) rotateX(60deg);
   animation: grid-scroll 30s linear infinite;
+  opacity: 0.03;
+  transition: opacity 0.3s ease;
+}
+
+/* 亮色模式下网格更淡 */
+:root:not(.dark) .grid-background {
+  opacity: 0.02;
 }
 
 @keyframes grid-scroll {
@@ -161,6 +190,30 @@ onMounted(() => {
   z-index: 1;
 }
 
+:deep(.particle) {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float-particle 20s linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 /* 扫描线 */
 .scanlines {
   position: absolute;
@@ -175,5 +228,10 @@ onMounted(() => {
   );
   pointer-events: none;
   z-index: 2;
+}
+
+/* 亮色模式下扫描线更淡 */
+:root:not(.dark) .scanlines {
+  opacity: 0.5;
 }
 </style>

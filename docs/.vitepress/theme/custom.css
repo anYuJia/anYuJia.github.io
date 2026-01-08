@@ -5,26 +5,26 @@
 /* ---------- 全局变量 ---------- */
 :root {
   /* 赛博朋克配色 */
-  --neon-cyan: #00ffff;
-  --neon-magenta: #ff00ff;
-  --neon-purple: #bd00ff;
-  --neon-blue: #00d4ff;
-  --neon-pink: #ff2d95;
-  --neon-green: #39ff14;
+  --neon-cyan: #00b8b8;
+  --neon-magenta: #cc00cc;
+  --neon-purple: #9900cc;
+  --neon-blue: #00aacc;
+  --neon-pink: #cc2480;
+  --neon-green: #2ecc10;
 
-  /* 背景色 */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: rgba(15, 15, 25, 0.8);
-  --bg-glass: rgba(20, 20, 40, 0.6);
+  /* 背景色 - 亮色模式 */
+  --bg-primary: #f5f5f8;
+  --bg-secondary: rgba(240, 240, 245, 0.9);
+  --bg-glass: rgba(255, 255, 255, 0.7);
 
   /* 玻璃效果 */
   --glass-blur: blur(20px);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-border: 1px solid rgba(0, 0, 0, 0.1);
 
   /* 辉光效果 */
-  --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
-  --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
-  --glow-purple: 0 0 20px rgba(189, 0, 255, 0.5), 0 0 40px rgba(189, 0, 255, 0.3);
+  --glow-cyan: 0 0 15px rgba(0, 180, 180, 0.4), 0 0 30px rgba(0, 180, 180, 0.2);
+  --glow-magenta: 0 0 15px rgba(200, 0, 200, 0.4), 0 0 30px rgba(200, 0, 200, 0.2);
+  --glow-purple: 0 0 15px rgba(150, 0, 200, 0.4), 0 0 30px rgba(150, 0, 200, 0.2);
 
   /* VitePress 覆盖 - 品牌色 */
   --vp-c-brand-1: var(--neon-cyan);
@@ -32,20 +32,44 @@
   --vp-c-brand-3: var(--neon-purple);
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta), var(--neon-purple));
+}
 
-  /* VitePress 覆盖 - 强制暗色背景 */
-  --vp-c-bg: #0a0a0f !important;
-  --vp-c-bg-alt: #0d0d14 !important;
-  --vp-c-bg-elv: #101018 !important;
-  --vp-c-bg-soft: #15151f !important;
-  --vp-sidebar-bg-color: transparent !important;
-  --vp-c-gutter: rgba(0, 255, 255, 0.1) !important;
-  --vp-c-divider: rgba(0, 255, 255, 0.1) !important;
-  --vp-c-text-1: #e0e0e0 !important;
-  --vp-c-text-2: #a0a0a0 !important;
-  --vp-c-text-3: #707070 !important;
-  --vp-nav-bg-color: transparent !important;
-  --vp-local-nav-bg-color: transparent !important;
+/* ---------- 暗色模式变量 ---------- */
+.dark {
+  /* 赛博朋克配色 - 更亮 */
+  --neon-cyan: #00ffff;
+  --neon-magenta: #ff00ff;
+  --neon-purple: #bd00ff;
+  --neon-blue: #00d4ff;
+  --neon-pink: #ff2d95;
+  --neon-green: #39ff14;
+
+  /* 背景色 - 暗色模式 */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: rgba(15, 15, 25, 0.8);
+  --bg-glass: rgba(20, 20, 40, 0.6);
+
+  /* 玻璃边框 */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* 辉光效果 - 更强 */
+  --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
+  --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+  --glow-purple: 0 0 20px rgba(189, 0, 255, 0.5), 0 0 40px rgba(189, 0, 255, 0.3);
+
+  /* VitePress 覆盖 - 暗色背景 */
+  --vp-c-bg: #0a0a0f;
+  --vp-c-bg-alt: #0d0d14;
+  --vp-c-bg-elv: #101018;
+  --vp-c-bg-soft: #15151f;
+  --vp-sidebar-bg-color: transparent;
+  --vp-c-gutter: rgba(0, 255, 255, 0.1);
+  --vp-c-divider: rgba(0, 255, 255, 0.1);
+  --vp-c-text-1: #e0e0e0;
+  --vp-c-text-2: #a0a0a0;
+  --vp-c-text-3: #707070;
+  --vp-nav-bg-color: transparent;
+  --vp-local-nav-bg-color: transparent;
 }
 
 /* ---------- 隐藏默认鼠标 ---------- */

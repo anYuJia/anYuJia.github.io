@@ -13,6 +13,7 @@ export default {
       { text: "⚡ 首页", link: "/" },
       { text: "📦 项目", link: "/projects/" },
       { text: "📡 博客", link: "/blog/" },
+      { text: "📷 日常", link: "/daily/" },
     ],
 
     // 侧边栏
@@ -30,6 +31,14 @@ export default {
           text: "博客",
           items: [
             { text: "文章列表", link: "/blog/" },
+          ],
+        },
+      ],
+      "/daily/": [
+        {
+          text: "日常记录",
+          items: [
+            { text: "全部动态", link: "/daily/" },
           ],
         },
       ],
@@ -107,6 +116,6 @@ export default {
     }
   },
 
-  // 黑暗模式
-  appearance: 'dark'
+  // 黑暗模式 - true 表示支持切换
+  appearance: true
 };

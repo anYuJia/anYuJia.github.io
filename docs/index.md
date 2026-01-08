@@ -44,8 +44,9 @@ features:
 
 .VPHero .name {
   font-family: 'Orbitron', 'Rajdhani', sans-serif !important;
-  letter-spacing: 0.3em !important;
-  font-size: clamp(2.5rem, 8vw, 5rem) !important;
+  letter-spacing: 0.2em !important;
+  font-size: clamp(2rem, 6vw, 4rem) !important;
+  white-space: nowrap !important;
 }
 
 .VPHero .text {
